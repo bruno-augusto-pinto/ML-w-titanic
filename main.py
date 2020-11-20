@@ -1,8 +1,14 @@
-import numpy as np
 import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
 
-df1 = pd.read_csv('Data/train.csv')
-df2 = pd.read_csv('Data/test.csv')
+df_train = pd.read_csv('Data/train.csv')
+df_test = pd.read_csv('Data/test.csv')
 
-print(df1.info())
-print(df2.info())
+entradas = ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Ticket', 'Fare', 'Cabin', 'Embarked']
+saida = ['Survived']
+
+x_train = df_train[entradas]
+y_train = df_train[saida]
